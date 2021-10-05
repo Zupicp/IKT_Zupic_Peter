@@ -32,14 +32,19 @@
   
         <div class='container' style='margin-top:30px'> 
         <div class='row flex-column-reverse flex-sm-row'>        
-        <div class='col-sm-8'>
+        <div class='col-sm-8' style="background-color:#0077b3">
         <h2>content</h2>
         </div>
   
-        <div class='col-sm-4'>
+        <div class='col-sm-4' style="background-color:#b3ff1a">
         <h2>Login</h2>
-        <?php
-        include(login.php)
+        <?php  
+          if(isset($_GET["id"]) && $_GET["id"]=='reglap'){
+            include('reg.php');
+          }
+          else{
+            include('login.php');
+          }
         ?>
         </p>      
         </div>

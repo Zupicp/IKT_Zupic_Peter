@@ -1,27 +1,33 @@
-<h2>Regisztráció</h2>
+<h2>Registration</h2>
 <form>
   <div class="form-group">
-    <label for="uname">Felhasználónév</label>
-    <input type="text" class="form-control" id="exampleInputUsername1" aria-describedby="usernameHelp" placeholder="Gépeld be a felhasználó neved">
-    <small id="unameHelp" class="form-text text-muted">A felhasználó neved ékezetet ne tartalmazzon!</small>
+    <label for="uname">Username</label>
+    <input type="text" class="form-control" id="uname" aria-describedby="usernameHelp" placeholder="Username">
+    <small id="unameHelp" class="form-text text-muted">No Special characters</small>
   </div>
   <div class="form-group">
-    <label for="pass1">Jelszó</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Ide jöhet a jelszavad!">
+    <label for="pass1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
   </div>
   <div class="form-group">
-    <label for="pass2">Jelszó mégegyszer</label>
-    <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Ismételd meg a jelszavad!">
+    <label for="pass2">Password again!</label>
+    <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password again!">
   </div>
   <div class="form-group">
-    <label for="uname">Teljes név</label>
-    <input type="text" class="form-control" id="exampleInputName1" aria-describedby="nameHelp" placeholder="Gépeld be a neved">
-    <small id="nameHelp" class="form-text text-muted">Kérem a teljes neved!</small>
+    <label for="uname">Full Name</label>
+    <input type="text" class="form-control" id="exampleInputName1" aria-describedby="nameHelp" placeholder="Full Name">
+    <small id="nameHelp" class="form-text text-muted">Full Name</small>
   </div>
   <div class="form-group">
-    <label for="email">Email cím</label>
-    <input type="email" class="form-control" id="exampleInputUsername1" aria-describedby="emailHelp" placeholder="Gépeld be az email címed!">
-    <small id="emailHelp" class="form-text text-muted">Ide jöhet az email címed, figyelj a formátumra!</small>
+    <label for="email">Email</label>
+    <input type="email" class="form-control" id="Email" aria-describedby="emailHelp" placeholder="Email address">
+    <small id="emailHelp" class="form-text text-muted">Email address</small>
   </div>
-  <button type="submit" class="btn btn-primary">Regisztrálás</button>
+  <div class="form-group">
+  <label for="gender">Gender:</label>
+  <input type="radio" name="gender" value="female">Female
+  <input type="radio" name="gender" value="male">Male
+  <input type="radio" name="gender" value="other">Other
+  </div>
+  <button type="submit" class="btn btn-primary">Registration</button>
 </form>
