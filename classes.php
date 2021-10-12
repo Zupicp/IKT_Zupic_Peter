@@ -37,19 +37,19 @@ class LoginCheck extends Forms{
 
     }
 
-    public function getUName(){
+    public function getuName(){
         return $this->uName;
     }
 
-    public function getUPass(){
+    public function getuPass(){
         return $this->uPass;
     }
 
-    public function getUNameErr(){
+    public function getuNameErr(){
         return $this->uNameErr;
     }
 
-    public function getUPassErr(){
+    public function getuPassErr(){
         return $this->uPassErr;
     }
 }
