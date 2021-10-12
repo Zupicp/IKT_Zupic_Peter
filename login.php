@@ -1,13 +1,26 @@
-<form>
+<?php
+include('classes.php');
+if(isset($_POST['userName1']) && isset($_POST['userPass1'])){
+$log=new LoginCheck($_POST['userName1'], $_POST['userPass1']);
+}
+else{
+    $log=new LoginCheck("","");
+
+}
+?>
+
+<form action=<?php echo $_SERVER['PHP_SELF'];?> method="POST">
 <div class="form-group">
-            <label for="uname">Username:</label><br>
-            <input type="text" class="form-control" id="uname" name="uname" placeholder="Username"><br>
+            <label>Username:</label><br>
+            <input type="text" class="form-control" name="userName1" value="<?php echo $log->getuName();?>" placeholder="Username">
+            <small class="form-text text-muted" name="userinfo1"><?php echo $log->getuNameErr();?></small><br>
             </div>
 <div class="form-group">
-            <label for="pword">Password:</label><br>
-            <input type="password" class="form-control" id="pword" name="pword" placeholder="Password"><br><br>
-</div>
-<div class="form-group"><a href="ikt.php?id=reglap" style="color:white">Registration</a>
+            <label>Password:</label><br>
+            <input type="password" class="form-control" name="userPass1" value="<?php echo $log->getuPass();?>" placeholder="Password"><br><br>
+            <small class="form-text text-muted" name="userInfo2"><?php echo $log->getuPassErr();?></small>
+        </div>
+<div class="form-group"><a href="ikt.php?id=reglap" style="color:black">Registration</a>
 </div>
             <button type="submit" class="btn btn-primary">Send</button>
             
