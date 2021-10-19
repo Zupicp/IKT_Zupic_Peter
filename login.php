@@ -1,6 +1,6 @@
 <?php
 include('classes.php');
-if(isset($_POST['userName1']) && isset($_POST['userPass1'])){
+if($_SERVER['REQUEST_METHOD']=='POST'){
 $log=new LoginCheck($_POST['userName1'], $_POST['userPass1']);
 }
 else{
@@ -13,7 +13,7 @@ else{
 <div class="form-group">
             <label>Username:</label><br>
             <input type="text" class="form-control" name="userName1" value="<?php echo $log->getuName();?>" placeholder="Username">
-            <small class="form-text text-muted" name="userinfo1"><?php echo $log->getuNameErr();?></small><br>
+            <small class="form-text text-muted" name="userInfo1"><?php echo $log->getuNameErr();?></small><br>
             </div>
 <div class="form-group">
             <label>Password:</label><br>

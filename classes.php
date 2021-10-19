@@ -3,13 +3,22 @@
 class Forms{
     protected $uName;
     protected $uPass;
-    protected $uNameErr;
-    protected $uPassErr;
+    public function getUName(){
+        return $this->uName;
+    }
+
+    public function getUPass(){
+        return $this->uPass;
+    }
+    
    
 }
 
 //Login űrlap validálásához létrehozott osztály
 class LoginCheck extends Forms{
+    private $uNameErr;
+    private $uPassErr;
+
     function __construct($name, $password){
         $this->uName=$name;
         $this->uPass=$password;
@@ -37,25 +46,71 @@ class LoginCheck extends Forms{
 
     }
 
-    public function getuName(){
-        return $this->uName;
-    }
+    
 
-    public function getuPass(){
-        return $this->uPass;
-    }
-
-    public function getuNameErr(){
+    public function getUNameErr(){
         return $this->uNameErr;
     }
 
-    public function getuPassErr(){
+    public function getUPassErr(){
         return $this->uPassErr;
     }
 }
 
 //Reisztrációs űrlap validálásához létrehozott osztály
 class RegCheck extends Forms{
+    private $uFullName;
+    private $uEmail;
+
+    function getUFullName(){
+        return $this->uFullName;
+    }
+    function getUEmail(){
+        return $this->uEmail;
+    }
+    function __construct($name,$password,$fname,$email){
+        $this->uName=$name;
+        $this->uPass=md5($password);
+        $this->uFullName=$fname;
+        $this->uEmail=$email;
+
+        /*$sql ="INSERT INTO `users`(`uname`,`email`,`pwd`,`fullname`,`active`,`rank`,`ban`,`reg_time`,`log_time`) VALUES ('".$this->getUName()."','".$this->getUEmail()."','".$this->getUPass()."','"$this->getUFullName()."',0,0,0,'".date('Y-m-d-H-i')."','0')";*/
+
+        $query ="INSERT INTO `users`(`uname`, `email`, `pwd`, `fullname`, `active`, `rank`, `ban`, `reg_time`, `log_time`) VALUES ('".$this->getUName()."','".$this->getUEmail()."','".$this->getUPass()."','".$this->getUFullName()."',0,0,0,'".date('Y-m-d-H-i')."','0')";
+
+        $c=new Connection();
+
+        if (mysqli_query($c->getConn(), $query)) {
+            echo "Új rekord felöltése sikeres volt.";
+          } else {
+            echo "Error: " . $query . "<br>" . mysqli_error($c->getConn());
+          }
+          
+        mysqli_close($c->getConn());
+        header('location:ikt.php');
+    }
+}
+class Connection{
+    private $servername;
+    private $username;
+    private $password;
+    private $db;
+    private $conn; 
     
+    public function getConn(){
+        return $this->conn;
+    }
+    
+    function __construct() {
+        $this->servername = "localhost";
+        $this->username = "root";
+        $this->password = "";
+        $this->db = "projekt1";
+        $this->conn = mysqli_connect($this->servername, $this->username, $this->password, $this->db);
+        
+        if ($this->conn->connect_error) {
+            die("Connection failed: " . $this->conn->connect_error);
+        }
+    }
 }
 ?>

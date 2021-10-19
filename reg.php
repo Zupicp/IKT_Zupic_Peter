@@ -1,18 +1,25 @@
+<?php
+include('classes.php');
+if($_SERVER['REQUEST_METHOD']=='POST'){
+  $con=new Connection();
+  $reg=new RegCheck($_POST['uName'],$_POST['uPass'],$_POST['uFullName'],$_POST['uEmail']);
+}
+?>
 <h2>Registration</h2>
-<form>
+<form action="<?php echo $_SERVER['PHP_SELF'];?>?id=reglap" method="POST">
   <div class="form-group">
-    <label for="uname">Felhasználónév</label>
-    <input type="text" class="form-control" required aria-describedby="usernameHelp" placeholder="Felhasználónév">
-    <small id="unameHelp" class="form-text text-muted">Ne használjon ékezetes betüket!</small>
+    <label for="uName">Felhasználónév</label>
+    <input type="text" class="form-control" required pattern="[a-zA-Z'-'\s]*" name="uName" placeholder="Felhasználónév">
+    <small class="form-text text-muted">Ne használjon ékezetes betüket!</small>
   </div>
   
   <div class="form-group">
     <label for="pass1">Jelszó</label>
-    <input id="Password" type="password" class="form-control" required placeholder="Jelszó">
+    <input id="Password" type="password" class="form-control" name="uPass" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Jelszó">
   </div>
   <div class="form-group">
     <label for="pass2">Jelszó újra!</label>
-    <input id="ConfirmPassword" type="password" class="form-control" required placeholder="Jelszó újra!">
+    <input id="ConfirmPassword" type="password" class="form-control" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Jelszó újra!">
   </div>
   <div id="msg"></div><!--Jeszó vizsgálat eredményének a megjelenítése-->
   <script>
@@ -37,20 +44,14 @@
     });
   </script>
   <div class="form-group">
-    <label for="uname">Teljes név</label>
-    <input type="text" class="form-control" required aria-describedby="nameHelp" placeholder="Teljes név">
+    <label for="fullname">Teljes név</label>
+    <input type="text" class="form-control" name="uFullName" required aria-describedby="nameHelp" placeholder="Teljes név">
     <small id="nameHelp" class="form-text text-muted">Teljes név</small>
   </div>
   <div class="form-group">
     <label for="email">Email</label>
-    <input type="email" class="form-control" required aria-describedby="emailHelp" placeholder="Email cím">
+    <input type="email" class="form-control" name="uEmail" required aria-describedby="emailHelp" placeholder="Email cím">
     <small id="emailHelp" class="form-text text-muted">Email cím</small>
-  </div>
-  <div class="form-group">
-  <label for="gender">Nem:</label>
-  <input type="radio" name="gender" value="female">Nő
-  <input type="radio" name="gender" value="male">Férfi
-  <input type="radio" name="gender" value="other">Egyéb
   </div>
   <button type="submit" class="btn btn-primary">Registration</button>
 </form>
