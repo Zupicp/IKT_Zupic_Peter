@@ -1,0 +1,10 @@
+C:\Users\Tanulo\source\repos\Autókereskedés\Autókereskedés\bin\Debug\Autókereskedés.exe.config
+C:\Users\Tanulo\source\repos\Autókereskedés\Autókereskedés\bin\Debug\Autókereskedés.exe
+C:\Users\Tanulo\source\repos\Autókereskedés\Autókereskedés\bin\Debug\Autókereskedés.pdb
+C:\Users\Tanulo\source\repos\Autókereskedés\Autókereskedés\obj\Debug\Autókereskedés.csproj.AssemblyReference.cache
+C:\Users\Tanulo\source\repos\Autókereskedés\Autókereskedés\obj\Debug\Autókereskedés.Form1.resources
+C:\Users\Tanulo\source\repos\Autókereskedés\Autókereskedés\obj\Debug\Autókereskedés.Properties.Resources.resources
+C:\Users\Tanulo\source\repos\Autókereskedés\Autókereskedés\obj\Debug\Autókereskedés.csproj.GenerateResource.cache
+C:\Users\Tanulo\source\repos\Autókereskedés\Autókereskedés\obj\Debug\Autókereskedés.csproj.CoreCompileInputs.cache
+C:\Users\Tanulo\source\repos\Autókereskedés\Autókereskedés\obj\Debug\Autókereskedés.exe
+C:\Users\Tanulo\source\repos\Autókereskedés\Autókereskedés\obj\Debug\Autókereskedés.pdb
